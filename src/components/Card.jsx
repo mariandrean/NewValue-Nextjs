@@ -4,7 +4,7 @@ import dateConverter from '@/utils/dateConverter';
 
 const Card = ({ news, index }) => {
   return (
-    <Link href={`/news/${news.id}`} className='flex flex-col gap-3 h-full' >
+    <Link href={`/actualidad/${news.id}`} className='flex flex-col gap-3 h-full' >
       <img src={news.image} alt={news.title} className={"object-cover " + (index == 0 ? "aspect-[6/7]" : "aspect-[5/4]")} />
       <div className='flex flex-col gap-1'>
         <h3 className={'font-semibold ' + (index == 0 ? "text-xl" : "text-sm")}>
