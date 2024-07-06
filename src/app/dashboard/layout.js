@@ -1,9 +1,7 @@
 import React from 'react'
 
-function DashboardLayout() {
-  return (
-    <div>DashboardLayout</div>
-  )
+function DashboardLayout({ children }) {
+  return children;
 }
 
 export default DashboardLayout
