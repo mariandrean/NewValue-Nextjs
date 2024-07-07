@@ -9,7 +9,7 @@ async function NewsDetails({ params }) {
   const categories = news.category.split(",");
 
   return (
-    <>
+    <div className='max-w-[1000px]'>
       <h1 className="font-semibold text-lg mb-5">ACTUALIDAD</h1>
       {
         <section className='flex-col md:grid grid-cols-9 gap-12 place-content-center place-items-center'>
@@ -31,7 +31,7 @@ async function NewsDetails({ params }) {
           </div>
         </section>
       }
-    </>
+    </div>
   )
 }
 
