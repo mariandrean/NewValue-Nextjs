@@ -5,7 +5,7 @@ export default function Loading() {
   return (
     <div role="status" className='flex flex-col place-items-center w-full'>
       <LoadingCircle />
-      <span>Cargando...</span>
+      <span>Cargando detalles de la noticia...</span>
     </div>
   )
 }
