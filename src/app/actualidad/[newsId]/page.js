@@ -12,8 +12,8 @@ async function NewsDetails({ params }) {
     <>
       <h1 className="font-semibold text-lg mb-5">ACTUALIDAD</h1>
       {
-        <section className='flex-col md:grid grid-cols-9 gap-12 place-content-center place-items-center'>
-          <img src={news.image} alt={news.title} className='col-span-4 object-cover place-self-start h-full max-h-[700px] mb-6' />
+        <section className='flex flex-col md:grid grid-cols-9 gap-8 md:gap-12 place-content-center place-items-center'>
+          <img src={news.image} alt={news.title} className='col-span-4 object-cover md:self-start h-full md:max-h-[700px]' />
           <div className='col-span-5 place-self-start flex flex-col gap-5'>
             <p className='text-xs'>{dateConverter(news.date)}</p>
             <h1 className='font-semibold'>{news.title}</h1>

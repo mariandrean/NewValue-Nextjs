@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={poppins.className+" flex flex-col place-items-center"}>
-        <main className="max-w-[1000px]">
+        <main className="max-w-[1000px] m-5">
           {children}
         </main>
       </body>
