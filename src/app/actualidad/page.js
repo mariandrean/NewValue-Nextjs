@@ -6,7 +6,7 @@ async function Actualidad () {
   const news = await getAllNews();
 
   return (
-    <div className='max-w-[1000px] '>
+    <>
       <h1 className="font-semibold text-lg mb-5">ACTUALIDAD</h1>
 
       {
@@ -20,7 +20,7 @@ async function Actualidad () {
             </section>
           </>
       }
-    </div>
+    </>
 
   )
 }
