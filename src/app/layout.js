@@ -14,9 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <UserProvider>
         <body className={poppins.className + " flex flex-col place-items-center"}>
-          <main className="max-w-[1000px] m-5">
             {children}
-          </main>
         </body>
       </UserProvider>
     </html>
