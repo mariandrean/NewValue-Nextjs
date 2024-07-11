@@ -1,0 +1,102 @@
+.navbar{
+  position:fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: transparent;
+  color: #000;
+}
+
+.navbar-scrolled {
+  background-color: #000000;
+}
+
+.navbar-scrolled .menu-icon-line {
+  background-color: #fff;
+}
+
+.menu-icon-wrapper {
+  display: block;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.menu-icon {
+  width: 25px;
+  height: 20px;
+  position: relative;
+}
+
+.menu-icon-line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: transform 0.3s ease;
+}
+
+.open .menu-icon-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.open .menu-icon-line:nth-child(2) {
+  opacity: 0;
+}
+
+.open .menu-icon-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.open-menu {
+  position: absolute;
+  top: 65px;
+  padding: 0 25px;
+  width: 15rem;
+  background-color: rgb(255, 255, 255);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.projects{
+  font-weight: lighter;
+}
+
+a:hover{
+  color: rgb(38, 204, 187);
+  transition: 0.5s;
+}
+
+.menu-separator{
+  background-color: black;
+  height: 2px;
+}
+
+.logo-menu{
+  width: 110px;
+  margin-top:-47px;
+  align-self: center;
+}
+
+.overlay {
+  position: relative;
+  top: 0;
+  left: 15rem;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.navbar-scrolled .logo{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(14deg) brightness(103%) contrast(103%);
+}
+
+.navbar-scrolled .logo-menu{
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(14deg) brightness(103%) contrast(103%);
+}
