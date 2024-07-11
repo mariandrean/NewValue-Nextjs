@@ -1,13 +1,12 @@
 import { getAllNews } from '@/services/newsServices'
 import Link from 'next/link';
-import React, { Suspense } from 'react'
+import React from 'react'
 
 async function Dashboard() {
   const news = await getAllNews();
 
   return (
     <div className='flex flex-col gap-5'>
-      <h2 className=" text-gray-900 font-semibold flex justify-center items-center">Panel de control</h2>
 
       {/*     {role === 'admin' && (
       <div className="flex justify-center w-full">
