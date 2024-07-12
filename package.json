@@ -9,12 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tiptap/extension-image": "^2.4.0",
+    "@tiptap/extension-link": "^2.4.0",
+    "@tiptap/extension-underline": "^2.4.0",
+    "@tiptap/pm": "^2.4.0",
+    "@tiptap/react": "^2.4.0",
+    "@tiptap/starter-kit": "^2.4.0",
     "axios": "^1.7.2",
     "html-react-parser": "^5.1.10",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.52.1"
+    "react-hook-form": "^7.52.1",
+    "sweetalert2": "^11.12.2"
   },
   "devDependencies": {
     "eslint": "^8",
