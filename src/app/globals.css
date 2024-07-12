@@ -2,3 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+
+ul {
+  list-style: circle;
+  margin-left: 30px;
+}
+
+ol {
+  list-style: decimal;
+  margin-left: 30px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.17rem;
+  font-weight: bold;
+}
+
+.ProseMirror {
+  height: auto;
+  outline: none;
+}
+
+.ProseMirror p{
+  line-height: 1.5;
+}
+
+.link-style{
+  text-decoration: underline;
+}
