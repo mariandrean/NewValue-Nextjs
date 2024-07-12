@@ -33,7 +33,7 @@ const extensions = [
     inline: true,
     allowBase64: true,
     HTMLAttributes: {
-      class: 'my-10',
+      class: 'my-2',
     },
   })
 ]
