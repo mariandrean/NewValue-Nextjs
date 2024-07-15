@@ -97,7 +97,7 @@ const TipTap = ({ onEditorContentSave, content }) => {
 
     if (imageUrl) {
       Swal.close();
-      editor.chain().focus().setImage({ src: imageUrl }).run()
+      editor.chain().focus().setImage({ src: imageUrl.url, alt: imageUrl.name }).run()
     }
     
   }, [editor])

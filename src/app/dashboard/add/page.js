@@ -1,8 +1,12 @@
-import React from 'react'
+import NewsForm from '@/components/NewsForm';
+import TipTap from '@/components/TipTap';
 
 function AddNews() {
+
   return (
-    <div>AddNews</div>
+    <div>
+      <NewsForm />
+    </div>
   )
 }
 
