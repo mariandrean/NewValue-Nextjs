@@ -30,8 +30,8 @@ const NewsForm = ({ method }) => {
   }
 
   const handleEditorContentSave = (html) => {
-    setValue("content", html)
-    clearErrors("content")
+    setValue("content", html);
+    clearErrors("content");
   }
 
   const onSubmit = async (formData) => {
@@ -42,16 +42,16 @@ const NewsForm = ({ method }) => {
       formData.category = "";
     }
 
-    const response = await createNews(formData, token);
-    if (response) {
-      Swal.fire({
-        icon: 'success',
-        title: method === "update" ? "Noticia actualizada" : "Noticia publicada",
-        showConfirmButton: true,
-        timer: 2000,
-      })
-      return 
-    }
+    await createNews(formData, token);
+
+    Swal.fire({
+      icon: 'success',
+      title: method === "update" ? "Noticia actualizada" : "Noticia publicada",
+      showConfirmButton: true,
+      timer: 2000,
+    })
+
+    router.push("/dashboard");
   }
 
   return (
@@ -79,7 +79,7 @@ const NewsForm = ({ method }) => {
         <fieldset className="flex flex-col gap-1 text-gray-700 border border-gray-400 appearance-none p-3" >
           <legend>Imagen</legend>
           {imagePreview &&
-            <img src={imagePreview.url} alt={imagePreview.name} className="max-h-[300px] w-fit mb-2" />
+            <img src={imagePreview.url} className="max-h-[300px] w-fit mb-2" alt={imagePreview.name}/>
           }
           <input className='image-input border-none w-full text-sm file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:font-semibold file:bg-teal-500 file:text-white hover:file:bg-teal-800'
             id='image-input' type="file" accept="image/*" onChange={handleImage} />
