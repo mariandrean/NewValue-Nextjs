@@ -17,7 +17,6 @@ function DeleteNewsButton({newsId}) {
       denyButtonText: `Cancelar`
     }).then(async (result) => {
       if (result.isConfirmed) {
-        console.log(id,token);
         await deleteNews(id, token);
         Swal.fire({
           icon: 'success',
