@@ -5,7 +5,7 @@ function AddNews() {
 
   return (
     <div>
-      <NewsForm />
+      <NewsForm method="post" />
     </div>
   )
 }

@@ -1,11 +1,15 @@
 import DeleteNewsButton from '@/components/DeleteButton';
+import NewsForm from '@/components/NewsForm';
+import { getNewsById } from '@/services/newsServices';
 import React from 'react'
 
-function EditNews({ params }) {
+async function EditNews({ params }) {
   const { newsId } = params;
+  const newsData = await getNewsById(newsId);
 
   return (
-    <div>EditNews {newsId}
+    <div>
+      <NewsForm newsId={newsId} method="put" newsData={newsData}/>
       <DeleteNewsButton newsId={newsId} />
     </div>
   )

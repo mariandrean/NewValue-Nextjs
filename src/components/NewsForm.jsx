@@ -1,19 +1,29 @@
 "use client";
 
 import { uploadImage } from '@/utils/cloudinary';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import TipTap from './TipTap';
-import { createNews } from '@/services/newsServices';
+import { createNews, updateNews } from '@/services/newsServices';
 
-
-const NewsForm = ({ method }) => {
+const NewsForm = ({ method, newsId, newsData }) => {
   const router = useRouter();
   const token = localStorage.getItem('token');
   const { handleSubmit, register, setValue, formState: { errors }, clearErrors } = useForm();
-  const [imagePreview, setImagePreview] = useState(/* () => newsData ? newsData.image : "" */);
+  const [imagePreview, setImagePreview] = useState(() => newsData ? newsData.image : "");
+
+
+  if (newsData) {
+    setValue("title", newsData.title);
+    setValue("subtitle", newsData.subtitle);
+    setValue("date", newsData.date);
+    setValue("image", newsData.image)
+    setValue("content", newsData.content)
+    setValue("category", newsData.category?.split(","));
+  }
+
 
   const handleImage = async (e) => {
     Swal.fire({
@@ -42,11 +52,11 @@ const NewsForm = ({ method }) => {
       formData.category = "";
     }
 
-    await createNews(formData, token);
+    method === "post" ? await createNews(formData, token) : await updateNews(newsId, formData, token);
 
     Swal.fire({
       icon: 'success',
-      title: method === "update" ? "Noticia actualizada" : "Noticia publicada",
+      title: method === "post" ? "Noticia publicada" : "Noticia actualizada",
       showConfirmButton: true,
       timer: 2000,
     })
@@ -79,7 +89,7 @@ const NewsForm = ({ method }) => {
         <fieldset className="flex flex-col gap-1 text-gray-700 border border-gray-400 appearance-none p-3" >
           <legend>Imagen</legend>
           {imagePreview &&
-            <img src={imagePreview.url} className="max-h-[300px] w-fit mb-2" alt={imagePreview.name}/>
+            <img src={imagePreview.url} className="max-h-[300px] w-fit mb-2" alt={imagePreview.name} />
           }
           <input className='image-input border-none w-full text-sm file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:font-semibold file:bg-teal-500 file:text-white hover:file:bg-teal-800'
             id='image-input' type="file" accept="image/*" onChange={handleImage} />
@@ -96,7 +106,7 @@ const NewsForm = ({ method }) => {
               required: true,
             })}
           />
-          <TipTap onEditorContentSave={handleEditorContentSave} /* content={newsData?.content} */ />
+          <TipTap onEditorContentSave={handleEditorContentSave} content={newsData?.content} />
           {errors.content && errors.content.type === "required" && <p className="text-red-500">El contenido es requerido</p>}
         </fieldset>
 
@@ -113,8 +123,8 @@ const NewsForm = ({ method }) => {
         </fieldset>
 
         <div className='flex justify-center gap-5 mt-3 sm:mt-5'>
-          <button type="submit" className="w-[120px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">{method === "create" ? "Publicar" : "Guardar"}</button>
-          <button type='button' onClick={() => redirect('/dashboard')} className="w-[120px] self-center bg-gray-500 text-white border-gray-900 rounded-lg font-semibold py-2 px-4 hover:bg-gray-800 transition duration-300 ease-in-out">Descartar</button>
+          <button type="submit" className="w-[120px] self-center bg-teal-500 text-white border-green-900 rounded-lg font-semibold py-2 px-4 hover:bg-teal-800 transition duration-300 ease-in-out">{method === "post" ? "Publicar" : "Guardar"}</button>
+          <button type='button' onClick={() => router.back()} className="w-[120px] self-center bg-gray-500 text-white border-gray-900 rounded-lg font-semibold py-2 px-4 hover:bg-gray-800 transition duration-300 ease-in-out">Descartar</button>
         </div>
 
       </form>
